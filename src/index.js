@@ -1,10 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+
 import './index.css';
 import App from './App';
+
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import { createStore } from 'redux';
+import rootReducer from './stores/reducers/rootReducer';
+import {Provider} from 'react-redux';
+
+
+const marioStore = createStore(rootReducer);
+
+
+ReactDOM.render(<Provider store = {marioStore}><App /></Provider>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
