@@ -1,34 +1,13 @@
 import React from 'react'
+import ProjectSummary from './ProjectSummary.js';
 
 const ProjectList = () => {
     return(
         <div className="project-list secton">
-
-            <div className="card z-depth-0 project-summary">
-                <div className="card-content grey-text text-darken-3">
-                    <span className="card-title">Project Title</span>
-                    <p>Posted by Hannah</p>
-                    <p className="grey-text">4th May, 2am</p>
-                </div>
-            </div>
-
-            
-            <div className="card z-depth-0 project-summary">
-                <div className="card-content grey-text text-darken-3">
-                    <span className="card-title">Project Title</span>
-                    <p>Posted by Hannah</p>
-                    <p className="grey-text">4th May, 2am</p>
-                </div>
-            </div>
-
-            
-            <div className="card z-depth-0 project-summary">
-                <div className="card-content grey-text text-darken-3">
-                    <span className="card-title">Project Title</span>
-                    <p>Posted by Hannah</p>
-                    <p className="grey-text">4th May, 2am</p>
-                </div>
-            </div>
+            <ProjectSummary />
+            <ProjectSummary />
+            <ProjectSummary />
+            <ProjectSummary />
         </div>
     )
 } 
