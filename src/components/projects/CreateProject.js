@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux' // importing connect
+import { createProject } from '../../stores/actions/projectActions' //import createProject from projectActions 
 
 export class CreateProject extends Component {
 
@@ -15,7 +17,8 @@ export class CreateProject extends Component {
 
     handleSubmit = (event) =>{
         event.preventDefault();
-        console.log(this.state);
+        //console.log(this.state);
+        this.props.createProject(this.state); //passing createdProject to the state.
     }
 
     render() {
@@ -41,4 +44,12 @@ export class CreateProject extends Component {
     }
 }
 
-export default CreateProject
+//functtion to map dispatch to props
+const mapDispatchToProps = (dispatch) => {
+    return {
+        createProject: (project) => dispatch(createProject(project))
+    }
+}
+
+//wrapping connect around createProject but state is the first argument so must be null
+export default connect(null, mapDispatchToProps)(CreateProject) 
