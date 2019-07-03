@@ -1,10 +1,10 @@
  import firebase from 'firebase/app'
- import 'firebase/firestore'
+ import firestore from 'firebase/firestore'
  import 'firebase/auth' 
   
   
   // Your web app's Firebase configuration
-  var firebaseConfig = {
+  const config = {
     apiKey: "AIzaSyDZYHkSQ-4YpMx47whx1HYmQL7LndBcyDc",
     authDomain: "net-mario-plan.firebaseapp.com",
     databaseURL: "https://net-mario-plan.firebaseio.com",
@@ -15,9 +15,10 @@
   };
 
 
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.firestore().settings({ timestampsInSnapshots : true });
+  //Initialize Firebase;
+  firebase.initializeApp(config);
+  export var todosRef = firebase.firestore();
+  // firebase.firestore().settings({ timestampsInSnapshots : true });
 
 
-  export default firebaseConfig
+  export default firebase
