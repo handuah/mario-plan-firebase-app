@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux' // importing connect
 import { createProject } from '../../stores/actions/projectActions' //import createProject from projectActions 
+import firestore from '../../config/firebaseConfig'
 
 export class CreateProject extends Component {
 
@@ -19,6 +20,10 @@ export class CreateProject extends Component {
         event.preventDefault();
         //console.log(this.state);
         this.props.createProject(this.state); //passing createdProject to the state.
+       this.setState({
+           title: '',
+           content: ''
+       });
     }
 
     render() {
@@ -29,7 +34,7 @@ export class CreateProject extends Component {
                     <h5 className="grey-text text-darken-3">Create New Project</h5>
                     <div className="input-field">
                         <label htmlFor="title">Title</label>
-                        <input type="text" id="title" onChange={this.handleChange}/>
+                        <input type="text" id="title" onChange={this.handleChange} />
                     </div>
                     <div className="input-field">
                         <label htmlFor="content">Content</label>
@@ -48,6 +53,7 @@ export class CreateProject extends Component {
 const mapDispatchToProps = (dispatch) => {
     return {
         createProject: (project) => dispatch(createProject(project))
+        // createProject: (project) => createProject(project)(dispatch)
     }
 }
 
