@@ -4,6 +4,7 @@ import { firestoreReducer } from 'redux-firestore'
 import authReducer from './authReducer'
 import projectReducer from './projectReducer'
 
+
 export const initialState = {}
 
 const rootReducer = combineReducers({
