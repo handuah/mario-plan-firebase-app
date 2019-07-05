@@ -1,12 +1,16 @@
 import React from 'react'
 import ProjectSummary from './ProjectSummary.js';
+import { Link } from 'react-router-dom';
 
 const ProjectList = ({projectsToDisplay}) => {
     return(
         <div className="project-list secton">
             {projectsToDisplay && projectsToDisplay.map(project => {
                 return(
-                    <ProjectSummary project = {project} key= {project.id}/> 
+                    <Link to={"/project/" + project.id}>
+                        <ProjectSummary project = {project} key= {project.id}/> 
+                    </Link>
+                    
                 )
             })}
             
